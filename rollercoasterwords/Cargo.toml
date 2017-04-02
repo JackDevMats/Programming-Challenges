@@ -1,0 +1,6 @@
+[package]
+name = "rollercoasterwords"
+version = "0.1.0"
+authors = ["j"]
+
+[dependencies]
