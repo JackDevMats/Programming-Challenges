@@ -1,0 +1,6 @@
+[package]
+name = "Kaprekar_Numbers"
+version = "0.1.0"
+authors = ["JackDevMats <jackatmast@gmail.com>"]
+
+[dependencies]
