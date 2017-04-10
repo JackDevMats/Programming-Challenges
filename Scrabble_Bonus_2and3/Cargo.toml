@@ -1,0 +1,6 @@
+[package]
+name = "Scrabble_Bonus_2and3"
+version = "0.1.0"
+authors = ["JackDevMats <jackatmast@gmail.com>"]
+
+[dependencies]
