@@ -6,7 +6,7 @@ pub fn string_to_vector(string: &str) -> Vec<&str> {
 pub fn longest_word(input_chars: &String, dictionary: &Vec<&str>) -> String {
 	let mut longest_word = String::new();
 	for word in dictionary {
-		if word.len() > longest_word.len() {
+		if word.len() > longest_word.len() && input_chars.len() >= word.len() {
 			if check_chars(&input_chars.clone(), &word.to_string()) {
 				longest_word = word.to_string();
 			}
