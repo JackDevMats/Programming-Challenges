@@ -14,17 +14,8 @@ fn main() {
     input.available_chars.truncate(input_len[0] - 2);
     input.word.truncate(input_len[1] - 2);
 
-    //Initial Problem
-    if check_chars(&input.available_chars, &input.word) {
-        println!("Your word, {}, can be made with the available characters.",
-                 &input.available_chars);
-    } else {
-        println!("Your word, {}, cannot be made with the available characters.",
-                 &input.available_chars);
-    }
-
-    //Bonus 1
-    if check_chars_bonus_1(&input.available_chars, &input.word) {
+    //Check Chars
+    if scrabble(&input.available_chars, &input.word) {
         println!("Bonus 1:Your word, {}, can be made with the available characters.",
                  &input.available_chars);
     } else {
@@ -49,23 +40,12 @@ fn get_input() -> Result<ScrabbleInput, std::io::Error> {
        })
 }
 
-//Check if each character in word is found in chars
-fn check_chars(input_chars: &String, word: &String) -> bool {
-    for char in word.chars() {
-        match input_chars.find(char) {
-            None => return false,
-            _ => (),
-        }
-    }
-    true
-}
-
-//Bonus 1
-fn check_chars_bonus_1(input_chars: &String, word: &String) -> bool {
+//Combined Checker
+fn scrabble(input_chars: &String, word: &String) -> bool {
     let mut find_question_marks = input_chars.clone();
     let mut letters_left = word.clone();
     for (index, char) in word.chars().enumerate() {
-        match input_chars.find(char) {
+        match find_question_marks.find(char) {
             None => (),
             Some(i) => {
                 find_question_marks.remove(i);
